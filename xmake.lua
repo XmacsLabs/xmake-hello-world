@@ -7,7 +7,7 @@ end
 
 if is_plat("wasm") then
     add_requires("emscripten")
-    set_toolchains("wasm@emscripten")
+    set_toolchains("emcc@emscripten")
 end
 
 add_rules("mode.debug", "mode.release")
