@@ -5,6 +5,11 @@ if is_plat("mingw") and is_host("windows") then
     set_toolchains("mingw@mingw-w64")
 end
 
+if is_plat("wasm") then
+    add_requires("emscripten")
+    set_toolchains("wasm@emscripten")
+end
+
 add_rules("mode.debug", "mode.release")
 
 target("hello")
