@@ -16,3 +16,12 @@ target("hello")
     set_kind("binary")
     add_files("src/*.c")
 
+    if is_plat("wasm") then
+        add_cxxflags("-s DISABLE_EXCEPTION_CATCHING=0")
+        add_ldflags("-s DISABLE_EXCEPTION_CATCHING=0")
+        on_run(function (target)
+            cmd = "node $(buildir)/wasm/wasm32/$(mode)/hello.js"
+            print("> " .. cmd)
+            os.exec(cmd)
+        end)
+    end
