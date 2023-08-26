@@ -12,6 +12,8 @@ end
 
 add_rules("mode.debug", "mode.release")
 
+add_requires("doctest 2.4.11", {system=false})
+
 target("hello")
     set_kind("binary")
     add_files("src/*.c")
