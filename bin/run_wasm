@@ -2,9 +2,11 @@
 
 use platform
 
+
 var pkg_info = (xrepo fetch --json emscripten | from-json)
 var emsdk_path = $pkg_info[0][artifacts][installdir]
 set-env EMSDK $emsdk_path
+
 
 if $platform:is-windows {
     set paths = [
@@ -12,5 +14,6 @@ if $platform:is-windows {
         $emsdk_path/node/16.20.0_64bit/bin
     ]
 }
+
 
 xmake run
