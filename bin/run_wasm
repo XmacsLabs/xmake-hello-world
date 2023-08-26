@@ -13,6 +13,11 @@ if $platform:is-windows {
         ~/scoop/shims/
         $emsdk_path/node/16.20.0_64bit/bin
     ]
+} elif $platform:is-unix {
+    set paths = [
+        /usr/bin
+        $emsdk_path/node/16.20.0_64bit/bin
+    ]
 }
 
 
